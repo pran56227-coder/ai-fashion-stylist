@@ -15,7 +15,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Pull your API key safely from environment variables
+# ✅ Kept your working environment variable with 'K'
 GROK_API_KEY = os.getenv("GROK_API_KEY")
 client = Groq(api_key=GROK_API_KEY)
 
@@ -50,21 +50,24 @@ async def analyze(file: UploadFile = File(...)):
         Keep your styling recommendations direct, specific to the garment seen, and highly actionable.
         """
 
-        # Call Groq's vision model instead of the text-only model
+        # ✅ Switched to a valid, active multi-modal vision model
         response = client.chat.completions.create(
-            model="llama-3.1-8b-instant",  # ✅ SWITCHED TO MULTI-MODAL VISION MODEL
+            model="llama-3.2-90b-vision-preview",  
             messages=[
                 {
                     "role": "user",
                     "content": [
-                        {"type": "text", "text": prompt},
+                        {
+                            "type": "text", 
+                            "text": prompt
+                        },
                         {
                             "type": "image_url",
                             "image_url": {
                                 "url": f"data:{mime_type};base64,{base64_image}"
-                            },
-                        },
-                    ],
+                            }
+                        }
+                    ]
                 }
             ],
             max_tokens=500,
