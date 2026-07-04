@@ -16,7 +16,7 @@ app.add_middleware(
 )
 
 # Pull your API key safely from environment variables
-GROK_API_KEY = os.getenv("GROQ_API_KEY")
+GROK_API_KEY = os.getenv("GROK_API_KEY")
 client = Groq(api_key=GROK_API_KEY)
 
 @app.get("/")
