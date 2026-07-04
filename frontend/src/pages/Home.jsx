@@ -5,7 +5,6 @@ import Features from "../components/Features";
 import UploadSection from "../components/UploadSection";
 import Stats from "../components/Stats";
 import StarBackground from "../components/StarBackground";
-import Footer from "../components/Footer"; // Added Footer if you have it
 
 function Home() {
   return (
@@ -33,10 +32,10 @@ function Home() {
 
       <Hero />
 
-      {/* Static Visual Section */}
+      {/* Static Visual Section Template */}
       <UploadSection />
 
-      {/* Working Functional Backend Component placed beautifully below it */}
+      {/* Working Functional Backend Component placed below it */}
       <div id="demo" className="relative z-10 max-w-xl mx-auto my-12 p-8 bg-zinc-900/60 rounded-2xl border border-zinc-800/80 text-center backdrop-blur-md">
         <h3 className="text-xl font-semibold mb-2 text-white">Try the Live Demo</h3>
         <p className="text-sm text-zinc-400 mb-6">Upload your outfit image below to get instant AI styling feedback.</p>
@@ -51,8 +50,6 @@ function Home() {
       <div id="pricing" className="relative z-10">
         <Stats />
       </div>
-
-      <Footer />
 
     </div>
   );
