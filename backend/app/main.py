@@ -52,7 +52,7 @@ async def analyze(file: UploadFile = File(...)):
 
         # Call Groq's vision model instead of the text-only model
         response = client.chat.completions.create(
-            model="llama-3.2-11b-vision-preview",  # ✅ SWITCHED TO MULTI-MODAL VISION MODEL
+            model="llama-3.2-11b-vision-instant",  # ✅ SWITCHED TO MULTI-MODAL VISION MODEL
             messages=[
                 {
                     "role": "user",
