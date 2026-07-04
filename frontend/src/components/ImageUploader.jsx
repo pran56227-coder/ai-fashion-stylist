@@ -23,7 +23,7 @@ function ImageUploader() {
 
     try {
       // CHANGED: Replaced http://127.0.0.1:8000 with the environment variable using backticks
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/analyze`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}analyze`, {
         method: "POST",
         body: formData,
       });
