@@ -52,7 +52,7 @@ async def analyze(file: UploadFile = File(...)):
 
         # ✅ Switched to a valid, active multi-modal vision model
         response = client.chat.completions.create(
-            model="meta-llama-4-scout-17b-16e-instruct",  
+            model="meta-llama/llama-4-scout-17b-16e-instruct",  
             messages=[
                 {
                     "role": "user",
