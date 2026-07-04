@@ -1,0 +1,56 @@
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import ImageUploader from "../components/ImageUploader";
+import Features from "../components/Features";
+import UploadSection from "../components/UploadSection";
+import Stats from "../components/Stats";
+import StarBackground from "../components/StarBackground";
+
+function Home() {
+  return (
+    <div className="relative min-h-screen overflow-hidden bg-[#050816]">
+
+      {/* Animated Star Background */}
+      <StarBackground />
+
+      {/* Aurora Background */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+
+        <div className="absolute -top-48 -left-40 h-[600px] w-[600px] rounded-full bg-pink-500/30 blur-[180px] animate-pulse"></div>
+
+        <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-purple-600/30 blur-[180px] animate-pulse"></div>
+
+        <div className="absolute top-1/3 left-1/2 h-[450px] w-[450px] rounded-full bg-cyan-500/20 blur-[170px] animate-pulse"></div>
+
+      </div>
+
+      {/* Floating Particles */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+
+        <div className="absolute top-20 left-20 h-2 w-2 rounded-full bg-pink-400 animate-bounce"></div>
+
+        <div className="absolute top-60 right-32 h-3 w-3 rounded-full bg-cyan-400 animate-ping"></div>
+
+        <div className="absolute bottom-24 left-1/3 h-2 w-2 rounded-full bg-white animate-pulse"></div>
+
+        <div className="absolute bottom-40 right-1/4 h-3 w-3 rounded-full bg-purple-400 animate-bounce"></div>
+
+      </div>
+
+      <Navbar />
+
+      <Hero />
+
+      <ImageUploader />
+
+      <Features />
+
+      <UploadSection />
+
+      <Stats />
+
+    </div>
+  );
+}
+
+export default Home;
