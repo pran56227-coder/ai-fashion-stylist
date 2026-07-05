@@ -24,7 +24,7 @@ function Home({ onScrollTo }) {
         <Features />
       </div>
 
-      {/* 5. NEW DETAILED COMMITMENT BLOCK (ABOUT SECTION) */}
+      {/* 5. Our Dedication / About Section Banner */}
       <section id="about-section" className="max-w-5xl mx-auto px-8 py-28 text-white scroll-mt-24 border-t border-white/[0.04]">
         <div className="grid md:grid-cols-5 gap-12 items-center">
           <div className="md:col-span-2">
@@ -44,7 +44,7 @@ function Home({ onScrollTo }) {
         </div>
       </section>
 
-      {/* 6. Fully Populated Column Plan Tables */}
+      {/* 6. System Processing Engine Layout Grid */}
       <div id="pricing-section" className="scroll-mt-24">
         <Pricing onScrollTo={onScrollTo} />
       </div>
