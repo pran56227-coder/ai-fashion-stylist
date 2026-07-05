@@ -37,16 +37,7 @@ function Navbar({ onScrollTo }) {
             About
           </button>
 
-          <button 
-            onClick={() => onScrollTo("stylecoach-section")}
-            className="text-gray-400 hover:text-white font-semibold text-sm tracking-wide transition"
-          >
-            AI Modes
-          </button>
-        </nav>
-
-        {/* Header Direct Action Trigger */}
-        <div>
+         
           <button 
             onClick={() => onScrollTo("upload-section")}
             className="rounded-full bg-gradient-to-r from-pink-500 to-purple-600 px-6 py-3 text-xs uppercase tracking-widest text-white font-extrabold hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-purple-500/20"
