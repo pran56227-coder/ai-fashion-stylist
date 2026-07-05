@@ -5,31 +5,45 @@ import UploadSection from "./components/UploadSection";
 import Features from "./components/Features";
 import Pricing from "./components/Pricing";
 import Footer from "./components/Footer";
-import StarBackground from "./components/StarBackground";
 
 function App() {
+  // Global bulletproof scroll function passed or referenced across files
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      console.warn(`Scroll target ID: #${id} not found in DOM.`);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-[#0B0A11] overflow-x-hidden selection:bg-pink-500 selection:text-white relative">
+    <div className="min-h-screen bg-[#0B0A11] text-white overflow-x-hidden selection:bg-pink-500 selection:text-white font-['Plus_Jakarta_Sans',sans-serif]">
       
-      {/* Visual Canvas Particle Layer */}
-      {window.location.pathname === "/" && <StarBackground />}
+      {/* Sticky Navigation bar */}
+      <Navbar onScrollTo={scrollToSection} />
 
-      {/* Synchronized Header Navigation */}
-      <Navbar />
-
-      {/* Main Structural Flow */}
       <main>
-        <Hero />
+        {/* Intro Hero Section */}
+        <Hero onScrollTo={scrollToSection} />
         
-        {/* Main Target ID added for smooth scroll link matching */}
-        <div id="upload-section">
+        {/* Workspace Upload Section */}
+        <div id="upload-section" className="scroll-mt-24">
           <UploadSection />
         </div>
 
-        <Features />
-        <Pricing />
+        {/* Feature Matrix Breakdown */}
+        <div id="features-section" className="scroll-mt-24">
+          <Features />
+        </div>
+
+        {/* Columnar Pricing Framework */}
+        <div id="pricing-section" className="scroll-mt-24">
+          <Pricing onScrollTo={scrollToSection} />
+        </div>
       </main>
 
+      {/* Global Footer */}
       <Footer />
     </div>
   );
