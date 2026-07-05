@@ -1,24 +1,6 @@
 import React from "react";
 
-function StyleCoach({ onScrollTo, selectedImage }) {
-  const API_BASE = "https://ai-fashion-stylist-backend.onrender.com";
-
-  const handleRequest = async (endpoint) => {
-    try {
-      // Replace with your actual implementation (e.g., FormData/Fetch)
-      const response = await fetch(`${API_BASE}${endpoint}`, {
-        method: "POST",
-        body: JSON.stringify({ image: selectedImage }),
-        headers: { "Content-Type": "application/json" }
-      });
-      const data = await response.json();
-      console.log("Response from backend:", data);
-      // Add your state update logic here
-    } catch (error) {
-      console.error("Error connecting to backend:", error);
-    }
-  };
-
+function StyleCoach({ onScrollTo }) {
   const stylingModes = [
     {
       badge: "AI COGNITION",
@@ -31,7 +13,6 @@ function StyleCoach({ onScrollTo, selectedImage }) {
         "Personal Wardrobe Score Generation"
       ],
       cta: "Analyze My Clothes 📸",
-      endpoint: "/analyze",
       highlighted: false
     },
     {
@@ -45,7 +26,6 @@ function StyleCoach({ onScrollTo, selectedImage }) {
         "Visual Trend Grid Asset Assembly"
       ],
       cta: "Get Style Advice 🔮",
-      endpoint: "/api/discover-outfits",
       highlighted: true
     }
   ];
@@ -68,6 +48,7 @@ function StyleCoach({ onScrollTo, selectedImage }) {
                 : "border-white/[0.06] bg-white/[0.01]"
             }`}
           >
+            {/* Mode Action Badge Tag */}
             <span className={`absolute -top-3.5 left-8 text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full border shadow-sm ${
               mode.highlighted ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white border-pink-400/20" : "bg-[#14121F] text-gray-400 border-white/10"
             }`}>
@@ -80,6 +61,7 @@ function StyleCoach({ onScrollTo, selectedImage }) {
                 {mode.description}
               </p>
               
+              {/* Detailed Operational Specs */}
               <ul className="mt-8 space-y-4 border-t border-white/[0.06] pt-8">
                 {mode.capabilities.map((capability, cIdx) => (
                   <li key={cIdx} className="text-gray-300 text-xs sm:text-sm font-medium flex items-start gap-3">
@@ -90,8 +72,9 @@ function StyleCoach({ onScrollTo, selectedImage }) {
               </ul>
             </div>
             
+            {/* Links up directly into your interactive upload and form center workspace */}
             <button 
-              onClick={() => handleRequest(mode.endpoint)}
+              onClick={() => onScrollTo("upload-section")}
               className={`mt-10 w-full rounded-xl py-4 text-center text-xs uppercase tracking-widest font-black transition-all active:scale-[0.98] ${
                 mode.highlighted ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:opacity-90 shadow-md" : "bg-white/[0.06] text-white hover:bg-white/[0.1]"
               }`}
