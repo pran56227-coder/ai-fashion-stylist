@@ -5,7 +5,7 @@ function Navbar({ onScrollTo }) {
     <header className="w-full bg-[#0B0A11]/70 backdrop-blur-xl border-b border-white/[0.06] sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
         
-        {/* Brand Identity */}
+        {/* Brand Logo Anchor */}
         <div 
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="text-2xl font-black tracking-tight flex items-center gap-1.5 cursor-pointer select-none"
@@ -14,7 +14,7 @@ function Navbar({ onScrollTo }) {
           <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent font-extrabold">STYLIST</span>
         </div>
 
-        {/* Global Navigation Target Controls */}
+        {/* Global Navigation Links */}
         <nav className="hidden md:flex items-center gap-10">
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -45,7 +45,7 @@ function Navbar({ onScrollTo }) {
           </button>
         </nav>
 
-        {/* Direct Action Access Point */}
+        {/* Header Direct Action Trigger */}
         <div>
           <button 
             onClick={() => onScrollTo("upload-section")}
