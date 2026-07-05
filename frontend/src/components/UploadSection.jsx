@@ -5,6 +5,7 @@ function UploadSection() {
   const [previewUrl, setPreviewUrl] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const [uploadStatus, setUploadStatus] = useState(""); // "", "uploading", "success", "error"
+  const [analysisResult, setAnalysisResult] = useState(""); // Stores the AI stylist feedback
   
   const fileInputRef = useRef(null);
 
@@ -22,6 +23,7 @@ function UploadSection() {
     setFile(selectedFile);
     setPreviewUrl(URL.createObjectURL(selectedFile));
     setUploadStatus(""); // Reset state for a new upload attempt
+    setAnalysisResult(""); // Clear previous result
   };
 
   // Direct actions for the hidden file browser input
@@ -51,29 +53,35 @@ function UploadSection() {
     }
   };
 
-  // Stream binary to server backend
+  // Stream binary to your FastAPI Render backend
   const uploadToBackend = async () => {
     if (!file) return;
 
     setUploadStatus("uploading");
+    setAnalysisResult("");
 
     const formData = new FormData();
-    formData.append("image", file); // Key parameter matching standard backend ingest tools
+    // ✅ Matches the backend endpoint expected key name: file
+    formData.append("file", file); 
 
     try {
-      // Connect to your production endpoint (e.g., "/api/analyze-outfit")
-      const response = await fetch("https://ai-fashion-stylist-backend.onrender.com/", {
+      // ✅ Connected directly to your live FastAPI /analyze route
+      const response = await fetch("https://ai-fashion-stylist-backend.onrender.com/analyze", {
         method: "POST",
         body: formData,
-        // Content-Type header is left completely blank intentionally 
-        // to let the browser automatically structure multipart boundaries.
       });
 
       if (!response.ok) throw new Error("Server rejected upload payload");
 
       const data = await response.json();
-      setUploadStatus("success");
-      console.log("Analysis success data:", data);
+      
+      if (data.success) {
+        setUploadStatus("success");
+        setAnalysisResult(data.ai_response);
+        console.log("Analysis success data:", data);
+      } else {
+        throw new Error(data.error || "Backend failed to process image");
+      }
 
     } catch (error) {
       console.error("Backend transmission issue:", error);
@@ -86,7 +94,7 @@ function UploadSection() {
       <div className="rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-2xl p-10">
         <div className="grid lg:grid-cols-2 gap-10">
           
-          {/* Text Information Panel */}
+          {/* Left Panel: Text Information & AI Results */}
           <div>
             <p className="uppercase tracking-[5px] text-pink-400">Get Started</p>
             <h2 className="mt-5 text-5xl font-black text-white">Upload Your Outfit</h2>
@@ -94,7 +102,7 @@ function UploadSection() {
               Let our AI analyze your clothing and provide outfit recommendations, color matching, and styling advice.
             </p>
 
-            {/* Action panel triggers smoothly only when a file is ready */}
+            {/* Action Panel / Status Bar */}
             {file && (
               <div className="mt-8 p-6 bg-white/5 rounded-2xl border border-white/5 max-w-sm">
                 <p className="text-sm text-gray-400 truncate">
@@ -112,9 +120,19 @@ function UploadSection() {
                 {uploadStatus === "error" && <p className="text-rose-400 text-sm mt-3 text-center font-medium">❌ System upload error. Try again.</p>}
               </div>
             )}
+
+            {/* Display AI Feedback Results Contextually */}
+            {analysisResult && (
+              <div className="mt-8 p-6 rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md">
+                <h3 className="text-xl font-bold text-white mb-4">Stylist Recommendations</h3>
+                <p className="text-gray-300 text-sm leading-7 whitespace-pre-line">
+                  {analysisResult}
+                </p>
+              </div>
+            )}
           </div>
 
-          {/* Drag & Drop Interactivity Zone */}
+          {/* Right Panel: Drag & Drop Interactivity Zone */}
           <div>
             <div 
               onDragOver={handleDragOver}
