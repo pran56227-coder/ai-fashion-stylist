@@ -1,63 +1,81 @@
 import React from "react";
 
-function Pricing() {
-  const tiers = [
+function Pricing({ onScrollTo }) {
+  const customTiers = [
     {
-      name: "Enthusiast Tier",
-      price: "$0",
-      features: ["5 Real-time Uploads Daily", "Standard Palette Extraction", "Basic Layering Suggestions"],
-      cta: "Get Started Free"
+      badge: "STANDARD ACCESS",
+      name: "Enthusiast Core",
+      cost: "$0",
+      features: [
+        "5 Multimodal Wardrobe Scans Daily",
+        "Hex Color Palette Extraction",
+        "Basic Silhouette Metric Balancing",
+        "Community Mood Board Access"
+      ],
+      cta: "Launch Workspace Free",
+      premium: false
     },
     {
-      name: "Haute Couture Pro",
-      price: "$14",
-      features: ["Unlimited Image Uploads", "Priority Server Queue Processing", "Advanced Multimodal Styling", "Full Capsule Wardrobe Recommendations"],
-      cta: "Unlock Pro Stylist",
-      popular: true
+      badge: "PRO MEMBERSHIP",
+      name: "Haute Pro Collective",
+      cost: "$14",
+      features: [
+        "Unlimited Instant Image Payload Scans",
+        "Priority GPU Cluster Allocation Queues",
+        "Deep Layering Topologies (Jackets & Outerwear)",
+        "Hardware Contrast Matching (Accessories & Metallic Accents)",
+        "Runway Matrix Predictive Trend Analysis"
+      ],
+      cta: "Deploy Complete AI Stylist",
+      premium: true
     }
   ];
 
   return (
-    <section id="pricing-section" className="max-w-6xl mx-auto px-8 py-24 font-['Plus_Jakarta_Sans',sans-serif] text-white scroll-mt-24">
-      <p className="uppercase tracking-[6px] text-xs font-black text-purple-400 text-center">Membership Plans</p>
-      <h2 className="text-center text-4xl sm:text-5xl font-black mt-3 mb-20 tracking-tight">Transparent Pricing Columns</h2>
+    <section className="max-w-6xl mx-auto px-8 py-24 text-white border-t border-white/[0.04]">
+      <p className="uppercase tracking-[6px] text-xs font-black text-purple-400 text-center">Membership Models</p>
+      <h2 className="text-center text-4xl sm:text-5xl font-black mt-3 mb-20 tracking-tight">Transparent Plan Inclusions</h2>
 
       <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
-        {tiers.map((tier, idx) => (
+        {customTiers.map((tier, idx) => (
           <div 
             key={idx} 
-            className={`p-12 rounded-[40px] border flex flex-col justify-between transition-all duration-300 relative ${
-              tier.popular 
-                ? "border-pink-500/60 bg-gradient-to-b from-purple-950/10 to-transparent shadow-xl" 
-                : "border-white/[0.06] bg-white/[0.02]"
+            className={`p-10 rounded-[36px] border flex flex-col justify-between transition-all duration-300 relative ${
+              tier.premium 
+                ? "border-pink-500/50 bg-gradient-to-b from-pink-950/10 to-transparent shadow-2xl shadow-pink-500/5" 
+                : "border-white/[0.06] bg-white/[0.01]"
             }`}
           >
-            {tier.popular && (
-              <span className="absolute -top-3.5 right-10 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md">
-                Highly Recommended
-              </span>
-            )}
+            {/* Tier Label Tag */}
+            <span className={`absolute -top-3.5 left-8 text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full border shadow-sm ${
+              tier.premium ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white border-pink-400/20" : "bg-[#14121F] text-gray-400 border-white/10"
+            }`}>
+              {tier.badge}
+            </span>
+
             <div>
-              <h3 className="text-2xl font-black tracking-tight">{tier.name}</h3>
-              <div className="mt-5 flex items-baseline gap-1">
-                <span className="text-5xl font-black tracking-tight">{tier.price}</span>
-                <span className="text-gray-400 text-sm font-semibold">/ monthly</span>
+              <h3 className="text-xl font-extrabold tracking-tight mt-2">{tier.name}</h3>
+              <div className="mt-4 flex items-baseline gap-1">
+                <span className="text-5xl font-black tracking-tight">{tier.cost}</span>
+                <span className="text-gray-500 text-xs font-semibold">/ month</span>
               </div>
+              
+              {/* Detailed Technical Feature Items */}
               <ul className="mt-8 space-y-4 border-t border-white/[0.06] pt-8">
-                {tier.features.map((f, i) => (
-                  <li key={i} className="text-gray-300 text-sm font-medium flex items-center gap-3">
-                    <span className="text-emerald-400 text-base">✓</span> {f}
+                {tier.features.map((feature, fIdx) => (
+                  <li key={fIdx} className="text-gray-300 text-xs sm:text-sm font-medium flex items-start gap-3">
+                    <span className="text-cyan-400 font-bold mt-0.5">✓</span>
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
             </div>
             
+            {/* CTA action redirects right to the file workspace field */}
             <button 
-              onClick={() => document.getElementById("upload-section").scrollIntoView({ behavior: "smooth" })}
-              className={`mt-12 w-full rounded-xl py-4 text-center text-xs uppercase tracking-widest font-black transition-all ${
-                tier.popular 
-                  ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:opacity-95 shadow-lg shadow-purple-500/10" 
-                  : "bg-white/[0.06] text-white hover:bg-white/[0.1]"
+              onClick={() => onScrollTo("upload-section")}
+              className={`mt-10 w-full rounded-xl py-4 text-center text-xs uppercase tracking-widest font-black transition-all active:scale-[0.98] ${
+                tier.premium ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:opacity-90 shadow-md" : "bg-white/[0.06] text-white hover:bg-white/[0.1]"
               }`}
             >
               {tier.cta}
