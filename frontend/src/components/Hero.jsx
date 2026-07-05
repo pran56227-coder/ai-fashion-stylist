@@ -1,67 +1,62 @@
 import React from "react";
 
-function Hero() {
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
+function Hero({ onScrollTo }) {
   return (
-    <section className="relative max-w-7xl mx-auto px-8 pt-32 pb-20 text-center font-['Plus_Jakarta_Sans',sans-serif]">
-      {/* Premium Badge */}
-      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-pink-500/30 bg-pink-500/10 text-xs font-bold uppercase tracking-widest text-pink-400 animate-pulse">
-        ✨ Powered by Advanced Multimodal Vision AI
+    <section className="relative max-w-7xl mx-auto px-8 pt-28 pb-16 text-center">
+      {/* Dynamic Visual Badge */}
+      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-xs font-bold uppercase tracking-widest text-cyan-400 mb-8">
+        🚀 V2 Multimodal Deep Learning Vision Engine Online
       </span>
 
-      {/* Main Headline */}
-      <h1 className="mt-8 text-5xl sm:text-7xl font-black text-white tracking-tight leading-[1.1] max-w-4xl mx-auto">
-        Your Personal AI Stylist, <br />
+      <h1 className="text-5xl sm:text-7xl font-black text-white tracking-tight leading-[1.1] max-w-4xl mx-auto">
+        Your Wardrobe, Refined By <br />
         <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-          Available 24/7.
+          Expert Aesthetic AI.
         </span>
       </h1>
 
-      {/* Description Copy */}
       <p className="mt-6 text-gray-400 text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
-        Upload any garment to decode its color harmonies, evaluate structural fit proportions, and generate instant, customized layering recommendations.
+        Drop an outfit file below to break down design language, match complementary color variables, and generate curated silhouette styling maps instantly.
       </p>
 
-      {/* FIXED BUTTON ACTIONS */}
+      {/* BOTH HERO BUTTONS FIXED AND SECURELY LINKED */}
       <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
         <button
-          onClick={() => scrollToSection("upload-section")}
-          className="w-full sm:w-auto rounded-full bg-gradient-to-r from-pink-500 to-purple-600 px-8 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-purple-500/20 hover:opacity-95 active:scale-95 transition-all"
+          onClick={() => onScrollTo("upload-section")}
+          className="w-full sm:w-auto rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 px-8 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-purple-500/25 hover:opacity-95 active:scale-95 transition-all"
         >
-          Upload Your Outfit 🚀
+          Upload Your Outfit 📸
         </button>
 
         <button
-          onClick={() => scrollToSection("features-section")}
-          className="w-full sm:w-auto rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-white/10 active:scale-95 transition-all"
+          onClick={() => onScrollTo("upload-section")}
+          className="w-full sm:w-auto rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-white/10 hover:border-white/20 active:scale-95 transition-all"
         >
-          Explore Core Features 🔮
+          Try Live Demo 🔮
         </button>
       </div>
 
-      {/* Quick Visual Features Inclusions */}
-      <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-white/[0.06] pt-12 max-w-4xl mx-auto">
-        <div>
-          <h4 className="text-white font-extrabold text-lg">Hex Color Decoding</h4>
-          <p className="text-gray-500 text-xs mt-1">Extracts exact garment shades</p>
+      {/* Expanded Quick Features Banner */}
+      <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-6 border-t border-white/[0.06] pt-12 max-w-5xl mx-auto text-left">
+        <div className="p-4 bg-white/[0.01] rounded-2xl border border-white/[0.03]">
+          <span className="text-xl">🎨</span>
+          <h4 className="text-white font-bold text-sm mt-2">Hex Contrast Decoding</h4>
+          <p className="text-gray-500 text-xs mt-1">Extracts exact garment swatches for matching.</p>
         </div>
-        <div>
-          <h4 className="text-white font-extrabold text-lg">Proportion Matching</h4>
-          <p className="text-gray-500 text-xs mt-1">Balances your silhouette</p>
+        <div className="p-4 bg-white/[0.01] rounded-2xl border border-white/[0.03]">
+          <span className="text-xl">📐</span>
+          <h4 className="text-white font-bold text-sm mt-2">Proportion Mapping</h4>
+          <p className="text-gray-500 text-xs mt-1">Balances top/bottom cuts to maintain structural silhouettes.</p>
         </div>
-        <div>
-          <h4 className="text-white font-extrabold text-lg">Capsule Layering</h4>
-          <p className="text-gray-500 text-xs mt-1">Smart jacket & shoe matches</p>
+        <div className="p-4 bg-white/[0.01] rounded-2xl border border-white/[0.03]">
+          <span className="text-xl">🧥</span>
+          <h4 className="text-white font-bold text-sm mt-2">Capsule Layering</h4>
+          <p className="text-gray-500 text-xs mt-1">Recommends smart jackets, outerwear, and footwear.</p>
         </div>
-        <div>
-          <h4 className="text-white font-extrabold text-lg">Occasion Checking</h4>
-          <p className="text-gray-500 text-xs mt-1">Formal, streetwear, or casual</p>
+        <div className="p-4 bg-white/[0.01] rounded-2xl border border-white/[0.03]">
+          <span className="text-xl">🎭</span>
+          <h4 className="text-white font-bold text-sm mt-2">Occasion Profiling</h4>
+          <p className="text-gray-500 text-xs mt-1">Cross-checks fits against casual, streetwear, or formal filters.</p>
         </div>
       </div>
     </section>
