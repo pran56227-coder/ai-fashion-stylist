@@ -3,9 +3,9 @@ import React from "react";
 function Hero({ onScrollTo }) {
   return (
     <section className="relative max-w-7xl mx-auto px-8 pt-28 pb-16 text-center">
-      {/* Dynamic Visual Badge */}
+      {/* Core Platform Banner Status Tag */}
       <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-xs font-bold uppercase tracking-widest text-cyan-400 mb-8">
-        🚀 V2 Multimodal Deep Learning Vision Engine Online
+        🚀 Multimodal Vision Pipeline Core Live
       </span>
 
       <h1 className="text-5xl sm:text-7xl font-black text-white tracking-tight leading-[1.1] max-w-4xl mx-auto">
@@ -16,10 +16,10 @@ function Hero({ onScrollTo }) {
       </h1>
 
       <p className="mt-6 text-gray-400 text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
-        Drop an outfit file below to break down design language, match complementary color variables, and generate curated silhouette styling maps instantly.
+        Drop any clothing item image file below to run automated composition breakdowns, extract structural hue palettes, and coordinate layers instantly.
       </p>
 
-      {/* BOTH HERO BUTTONS FIXED AND SECURELY LINKED */}
+      {/* TRIPLE VERIFIED REDIRECT TRIGGERS */}
       <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
         <button
           onClick={() => onScrollTo("upload-section")}
@@ -36,27 +36,27 @@ function Hero({ onScrollTo }) {
         </button>
       </div>
 
-      {/* Expanded Quick Features Banner */}
+      {/* Integrated Micro Summary Cards Grid */}
       <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-6 border-t border-white/[0.06] pt-12 max-w-5xl mx-auto text-left">
         <div className="p-4 bg-white/[0.01] rounded-2xl border border-white/[0.03]">
           <span className="text-xl">🎨</span>
           <h4 className="text-white font-bold text-sm mt-2">Hex Contrast Decoding</h4>
-          <p className="text-gray-500 text-xs mt-1">Extracts exact garment swatches for matching.</p>
+          <p className="text-gray-500 text-xs mt-1">Isolates primary garment swatches for matching matrices.</p>
         </div>
         <div className="p-4 bg-white/[0.01] rounded-2xl border border-white/[0.03]">
           <span className="text-xl">📐</span>
           <h4 className="text-white font-bold text-sm mt-2">Proportion Mapping</h4>
-          <p className="text-gray-500 text-xs mt-1">Balances top/bottom cuts to maintain structural silhouettes.</p>
+          <p className="text-gray-500 text-xs mt-1">Evaluates top and bottom hems to optimize silhouette lines.</p>
         </div>
         <div className="p-4 bg-white/[0.01] rounded-2xl border border-white/[0.03]">
-          <span className="text-xl">🧥</span>
+          <span className="text-xl"> 🧥</span>
           <h4 className="text-white font-bold text-sm mt-2">Capsule Layering</h4>
-          <p className="text-gray-500 text-xs mt-1">Recommends smart jackets, outerwear, and footwear.</p>
+          <p className="text-gray-500 text-xs mt-1">Recommends complementary jacket, coat, and outerwear fits.</p>
         </div>
         <div className="p-4 bg-white/[0.01] rounded-2xl border border-white/[0.03]">
           <span className="text-xl">🎭</span>
           <h4 className="text-white font-bold text-sm mt-2">Occasion Profiling</h4>
-          <p className="text-gray-500 text-xs mt-1">Cross-checks fits against casual, streetwear, or formal filters.</p>
+          <p className="text-gray-500 text-xs mt-1">Filters styling sets across formal, casual, or streetwear targets.</p>
         </div>
       </div>
     </section>
