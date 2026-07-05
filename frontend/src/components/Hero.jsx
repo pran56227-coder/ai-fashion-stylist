@@ -1,148 +1,69 @@
-import { motion } from "framer-motion";
-import { FaCloudUploadAlt } from "react-icons/fa";
-import { HiSparkles } from "react-icons/hi";
+import React from "react";
 
 function Hero() {
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section className="relative max-w-7xl mx-auto px-8 pt-20 pb-24">
+    <section className="relative max-w-7xl mx-auto px-8 pt-32 pb-20 text-center font-['Plus_Jakarta_Sans',sans-serif]">
+      {/* Premium Badge */}
+      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-pink-500/30 bg-pink-500/10 text-xs font-bold uppercase tracking-widest text-pink-400 animate-pulse">
+        ✨ Powered by Advanced Multimodal Vision AI
+      </span>
 
-      <div className="grid lg:grid-cols-2 items-center gap-16">
+      {/* Main Headline */}
+      <h1 className="mt-8 text-5xl sm:text-7xl font-black text-white tracking-tight leading-[1.1] max-w-4xl mx-auto">
+        Your Personal AI Stylist, <br />
+        <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+          Available 24/7.
+        </span>
+      </h1>
 
-        {/* LEFT */}
+      {/* Description Copy */}
+      <p className="mt-6 text-gray-400 text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
+        Upload any garment to decode its color harmonies, evaluate structural fit proportions, and generate instant, customized layering recommendations.
+      </p>
 
-        <motion.div
-          initial={{ opacity: 0, x: -70 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+      {/* FIXED BUTTON ACTIONS */}
+      <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button
+          onClick={() => scrollToSection("upload-section")}
+          className="w-full sm:w-auto rounded-full bg-gradient-to-r from-pink-500 to-purple-600 px-8 py-4 text-sm font-black uppercase tracking-widest text-white shadow-xl shadow-purple-500/20 hover:opacity-95 active:scale-95 transition-all"
         >
+          Upload Your Outfit 🚀
+        </button>
 
-          <div className="inline-flex items-center gap-2 rounded-full border border-pink-400/30 bg-white/10 backdrop-blur-xl px-5 py-2 text-pink-300">
-
-            <HiSparkles />
-
-            AI Powered Fashion Assistant
-
-          </div>
-
-          <h1 className="mt-8 text-6xl md:text-8xl font-black leading-tight text-white">
-
-            Discover Your
-
-            <br />
-
-            <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-
-              Perfect Style
-
-            </span>
-
-          </h1>
-
-          <p className="mt-8 max-w-xl text-xl leading-9 text-gray-300">
-
-            Upload your outfit and receive AI-powered fashion advice,
-
-            color matching, styling recommendations, and outfit inspiration
-
-            in seconds.
-
-          </p>
-
-          <div className="mt-10 flex flex-wrap gap-5">
-
-            <button className="rounded-full bg-gradient-to-r from-pink-500 to-purple-600 px-8 py-4 font-semibold text-white transition hover:scale-105">
-
-              <span className="flex items-center gap-2">
-
-                <FaCloudUploadAlt />
-
-                Upload Outfit
-
-              </span>
-
-            </button>
-
-            <button className="rounded-full border border-cyan-400 px-8 py-4 text-cyan-300 transition hover:bg-cyan-400 hover:text-black">
-
-              Try Demo
-
-            </button>
-
-          </div>
-
-          <div className="mt-10 flex flex-wrap gap-8 text-gray-400">
-
-            <span>🧠 AI Analysis</span>
-
-            <span>🔒 Secure & Private</span>
-
-            <span>⚡ Instant Results</span>
-
-          </div>
-
-        </motion.div>
-
-        {/* RIGHT */}
-
-        <motion.div
-          initial={{ opacity: 0, x: 70 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative flex justify-center"
+        <button
+          onClick={() => scrollToSection("features-section")}
+          className="w-full sm:w-auto rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm font-black uppercase tracking-widest text-white hover:bg-white/10 active:scale-95 transition-all"
         >
-
-          <div className="relative h-[560px] w-[430px] rounded-[40px] border border-white/10 bg-white/10 backdrop-blur-3xl">
-
-            <div className="absolute inset-0 rounded-[40px] bg-gradient-to-br from-pink-500/20 to-cyan-500/20"></div>
-
-            <img
-              src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=700"
-              alt="Fashion"
-              className="absolute bottom-0 rounded-[40px] object-cover h-full w-full"
-            />
-
-          </div>
-
-          <div className="absolute top-8 -left-10 rounded-3xl border border-white/10 bg-[#101827]/80 backdrop-blur-xl p-5">
-
-            ⭐ Style Score
-
-            <h2 className="text-3xl font-bold text-white">
-
-              9.4/10
-
-            </h2>
-
-          </div>
-
-          <div className="absolute top-16 -right-8 rounded-3xl border border-white/10 bg-[#101827]/80 backdrop-blur-xl p-5">
-
-            🎨 Match
-
-            <h2 className="text-3xl font-bold text-white">
-
-              92%
-
-            </h2>
-
-          </div>
-
-          <div className="absolute bottom-10 -right-8 rounded-3xl border border-white/10 bg-[#101827]/80 backdrop-blur-xl p-5">
-
-            🌸 Best Season
-
-            <h2 className="text-2xl font-bold text-white">
-
-              Spring
-
-            </h2>
-
-          </div>
-
-        </motion.div>
-
+          Explore Core Features 🔮
+        </button>
       </div>
 
+      {/* Quick Visual Features Inclusions */}
+      <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-white/[0.06] pt-12 max-w-4xl mx-auto">
+        <div>
+          <h4 className="text-white font-extrabold text-lg">Hex Color Decoding</h4>
+          <p className="text-gray-500 text-xs mt-1">Extracts exact garment shades</p>
+        </div>
+        <div>
+          <h4 className="text-white font-extrabold text-lg">Proportion Matching</h4>
+          <p className="text-gray-500 text-xs mt-1">Balances your silhouette</p>
+        </div>
+        <div>
+          <h4 className="text-white font-extrabold text-lg">Capsule Layering</h4>
+          <p className="text-gray-500 text-xs mt-1">Smart jacket & shoe matches</p>
+        </div>
+        <div>
+          <h4 className="text-white font-extrabold text-lg">Occasion Checking</h4>
+          <p className="text-gray-500 text-xs mt-1">Formal, streetwear, or casual</p>
+        </div>
+      </div>
     </section>
   );
 }
