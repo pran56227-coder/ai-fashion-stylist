@@ -41,7 +41,7 @@ function Navbar({ onScrollTo }) {
             onClick={() => onScrollTo("pricing-section")}
             className="text-gray-400 hover:text-white font-semibold text-sm tracking-wide transition"
           >
-            Pricing
+            AI Modes
           </button>
         </nav>
 
