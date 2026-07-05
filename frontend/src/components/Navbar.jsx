@@ -8,38 +8,44 @@ function Navbar({ onScrollTo }) {
         {/* Brand Logo */}
         <div 
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="text-2xl font-black tracking-tight flex items-center gap-1.5 cursor-pointer"
+          className="text-2xl font-black tracking-tight flex items-center gap-1.5 cursor-pointer select-none"
         >
           <span>AI</span>
           <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent font-extrabold">STYLIST</span>
         </div>
 
-        {/* Fixed Links */}
+        {/* Updated Links Array with About Integration */}
         <nav className="hidden md:flex items-center gap-10">
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-gray-400 hover:text-white font-semibold text-sm tracking-wide transition relative group py-2"
+            className="text-gray-400 hover:text-white font-semibold text-sm tracking-wide transition"
           >
             Home
-            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-pink-500 transition-all group-hover:w-full" />
           </button>
           
           <button 
             onClick={() => onScrollTo("features-section")}
-            className="text-gray-400 hover:text-white font-semibold text-sm tracking-wide transition relative group py-2"
+            className="text-gray-400 hover:text-white font-semibold text-sm tracking-wide transition"
           >
             Features
           </button>
 
           <button 
+            onClick={() => onScrollTo("about-section")}
+            className="text-gray-400 hover:text-white font-semibold text-sm tracking-wide transition"
+          >
+            About
+          </button>
+
+          <button 
             onClick={() => onScrollTo("pricing-section")}
-            className="text-gray-400 hover:text-white font-semibold text-sm tracking-wide transition relative group py-2"
+            className="text-gray-400 hover:text-white font-semibold text-sm tracking-wide transition"
           >
             Pricing
           </button>
         </nav>
 
-        {/* Linked Header CTA */}
+        {/* Main Interface Execution Action Button */}
         <div>
           <button 
             onClick={() => onScrollTo("upload-section")}
