@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 import UploadSection from "../components/UploadSection";
 import Features from "../components/Features";
 import Stats from "../components/Stats";
-import StyleCoach from "../components/StyleCoach"; // Rename file to StyleCoach.jsx
+
 
 function Home({ onScrollTo }) {
   return (
@@ -25,9 +25,7 @@ function Home({ onScrollTo }) {
         </div>
       </section>
 
-      <div id="pricing-section" className="scroll-mt-24">
-        <StyleCoach onScrollTo={onScrollTo} />
-      </div>
+    
     </div>
   );
 }
